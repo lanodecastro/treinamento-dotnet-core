@@ -1,0 +1,30 @@
+﻿@model  Treinamento.Models.ViewModels.ProdutoRequest
+@{
+    ViewData["Title"] = "Novo Produto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>
+    Novo Produto
+</h1>
+
+<form asp-action="GravarProduto">
+    <p>
+        <label>Nome</label><br />
+        <input type="text" maxlength="50" width="100" asp-for="Nome" />
+    </p>
+    <p>
+        <label>Quantidade em Estoque</label><br />
+        <input type="text" maxlength="5" width="80" asp-for="QuantidadeEstoque" />
+    </p>
+    <p>
+        <label>Preço</label><br />
+        <input type="text" maxlength="5" width="80" asp-for="Preco" />
+    </p>
+    <p>
+        <label>Categoria</label>
+        <select asp-for="Categoria.Codigo"   asp-items = "@(new SelectList(Model.Categorias,"Codigo","Nome"))" >
+        </select>
+    </p>
+
+    <input type="submit" value="Enviar" />
+</form>
